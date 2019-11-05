@@ -31,17 +31,6 @@ public class MessageService {
         return messages.stream().map(this::generateEvent).collect(Collectors.toList());
     }
 
-    public List<Message> findMessagesFuck(Integer id) {
-        List<Message> messages = this.messageRepository.findByReceiverIdAndSentAtIsNull(id);
-
-        messages.forEach(m -> {
-            m.setSentAt(LocalDateTime.now());
-            messageRepository.save(m);
-        });
-
-        return messages;
-    }
-
     private ServerSentEvent<Message> generateEvent(Message message) {
 
         return ServerSentEvent.<Message>builder()
