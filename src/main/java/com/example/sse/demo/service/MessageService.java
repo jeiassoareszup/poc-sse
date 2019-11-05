@@ -1,4 +1,4 @@
-package com.example.sse.demo;
+package com.example.sse.demo.service;
 
 import com.example.sse.demo.entity.Message;
 import com.example.sse.demo.repository.MessageRepository;
